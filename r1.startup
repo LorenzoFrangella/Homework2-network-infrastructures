@@ -3,5 +3,5 @@
 
 iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
 
-iptables -A FORWARD -m conntrack --ctstate ESTABLISHED,RELATED -i eth1 -j ACCEPT
+iptables -A FORWARD -m state --state ESTABLISHED,RELATED -i eth1 -j ACCEPT
 iptables -A FORWARD -d 192.168.0.0/24 -j DROP
