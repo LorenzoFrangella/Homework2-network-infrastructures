@@ -2,3 +2,6 @@
 /etc/init.d/quagga restart
 
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+
+iptables -A FORWARD -m conntrack --ctstate ESTABLISHED,RELATED -i eth0 -j ACCEPT
+iptables -A FORWARD -d 192.168.0.0/24 -j DROP
