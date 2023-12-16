@@ -5,3 +5,7 @@ iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
 iptables -A FORWARD -m state --state ESTABLISHED,RELATED -i eth0 -j ACCEPT
 iptables -A FORWARD -d 192.168.0.0/24 -j DROP
+
+
+iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 1194 -j DNAT --to-destination 192.168.0.100:5000
+iptables -I FORWARD -p tcp -s 100.0.0.0 -j ACCEPT
