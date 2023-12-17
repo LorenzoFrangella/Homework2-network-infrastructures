@@ -2,6 +2,8 @@
 
 /etc/init.d/ssh restart
 useradd myuser2 -m 
+echo -e 'pass\npass\n' | passwd myuser2
+
 
 mkdir /home/myuser2/.ssh
 touch /home/myuser2/.ssh/authorized_keys
@@ -24,4 +26,4 @@ mkdir -p /dev/net
 mknod /dev/net/tun c 10 200
 chmod 600 /dev/net/tun
 
-openvpn /openvpn_server.conf
+openvpn /openvpn_server.conf &

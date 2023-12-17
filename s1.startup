@@ -2,6 +2,7 @@
 
 /etc/init.d/ssh restart
 useradd myuser1 -m
+echo -e 'pass\npass\n' | passwd myuser1
 
 mkdir /home/myuser1/.ssh
 touch /home/myuser1/.ssh/authorized_keys
