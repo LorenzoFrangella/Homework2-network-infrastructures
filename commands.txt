@@ -1,2 +1,6 @@
-pc1: (to estabilish the ssh tunnel from s1 to pc1)
+# commands to run in pc1: 
+# (to estabilish the ssh tunnel from s1 to pc1)
 ssh -NL 5000:200.0.2.1:1194 myuser1@200.0.1.5 -4
+# to connect to the vpn server 
+openvpn ./openvpn.conf
+ssh myuser2@10.0.0.1
